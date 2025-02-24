@@ -58,14 +58,14 @@ body {
     margin-bottom: 10px;
     width: 100%;
     box-sizing: border-box;
+    gap: 10px;
 }
 
 .avatar {
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background: #ccc;
-    margin-right: 10px;
+    background: #7bf17f;
     flex-shrink: 0;
 }
 
@@ -73,9 +73,28 @@ body {
     background: #f1f1f1;
     padding: 10px;
     border-radius: 15px;
-    max-width: 100%;
+    max-width: calc(100% - 50px);
     word-wrap: break-word;
     flex-grow: 1;
+    display: flex; /* 横並びにする */
+    align-items: center; /* 中央揃え */
+    justify-content: space-between; /* テキストとボタンの間にスペース */
+    gap: 10px;
+}
+
+.chat_delete_button {
+    background: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    font-size: 14px;
+    border-radius: 5px;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.chat_delete_button:hover {
+    background: #d93636;
 }
 
 .chatter_form {
