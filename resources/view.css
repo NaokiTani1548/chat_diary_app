@@ -11,6 +11,7 @@ body {
 
 .container {
     width: 90%;
+    height: calc(100vh - 60px);
     max-width: 800px;
     background: white;
     border-radius: 10px;
@@ -24,7 +25,8 @@ body {
 
 .chat_history {
     width: 100%;
-    max-width: 400px;
+    max-width: 800px;
+    height: calc(100vh - 100px);
     background: white;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -46,7 +48,7 @@ body {
 
 .chat-box {
     padding: 15px;
-    max-height: 400px;
+    max-height: calc(100vh - 120px);
     overflow-y: auto;
     width: 100%;
     box-sizing: border-box;

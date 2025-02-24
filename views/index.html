@@ -11,15 +11,11 @@
         <div class="chat_history">
             <div class="header">PublicChatter</div>
             <div class="chat-box" id="chatBox">
-                <div class="message">
-                    <div class="avatar"></div>
-                    <div class="text">こんにちは！</div>
-                </div>
                 {{range .}}
                     <div class="message">
                         <div class="avatar"></div>
                         <div class="text">{{.Chat_detail}}
-                            <form action="/chat_delete/" method="DELETE"></form>
+                            <form action="/chat_delete/" method="DELETE">
                                 <button type="submit" value={{.Chat_id}} name="chat_delete" class="chat_delete_button">-</button>
                             </form>
                         </div>

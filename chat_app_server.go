@@ -2,10 +2,10 @@ package main
 
 import (
 	"database/sql"
-	"fmt"
 	"log"
 	"net/http"
 	"os"
+	"strconv"
 	"text/template"
 
 	_ "github.com/go-sql-driver/mysql"
@@ -18,7 +18,6 @@ type Chat struct {
 	Author_id   int
 }
 
-// HandlerFunc 型の関数を定義
 func indexHandler(w http.ResponseWriter, r *http.Request) {
 	err := godotenv.Load()
 	if err != nil {
@@ -61,9 +60,19 @@ func getPostChat(w http.ResponseWriter, r *http.Request) {
 	http.Redirect(w, r, "/", http.StatusFound)
 }
 
-// HandlerFunc 型の関数を定義
-func fuga(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprint(w, "fuga")
+func deleteChat(w http.ResponseWriter, r *http.Request) {
+	err := godotenv.Load()
+	if err != nil {
+		log.Fatal(err)
+	}
+	DB_Connection, _ := sql.Open("mysql", os.Getenv("DB_ROLE")+":"+os.Getenv("DB_PASS")+"@/"+os.Getenv("DB_NAME"))
+	defer DB_Connection.Close()
+	cmd := "DELETE FROM chat WHERE chat_id = ?"
+	i := r.FormValue("chat_delete")
+	var I int
+	I, _ = strconv.Atoi(i)
+	DB_Connection.Exec(cmd, I)
+	http.Redirect(w, r, "/", http.StatusFound)
 }
 
 func initDB() {
@@ -95,31 +104,7 @@ func main() {
 
 	http.HandleFunc("/", indexHandler)
 	http.HandleFunc("/chat/", getPostChat)
-	http.HandleFunc("/fuga", fuga)
+	http.HandleFunc("/chat_delete/", deleteChat)
 
 	server.ListenAndServe()
 }
-
-// package main
-
-// import (
-// 	"fmt"
-// 	"net/http"
-// )
-
-// type HelloHandler struct{}
-
-// // *HelloHandler がインターフェース http.Handler を実装
-// func (h *HelloHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
-// 	fmt.Fprint(w, "Helloooooooooooooo, world!")
-// }
-
-// func main() {
-// 	handler := HelloHandler{}
-
-// 	server := http.Server{
-// 		Addr:    ":8080",
-// 		Handler: &handler, //http.Handler 型(インターフェース)を期待
-// 	}
-// 	server.ListenAndServe()
-// }
