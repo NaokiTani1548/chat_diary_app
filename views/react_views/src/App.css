@@ -1,0 +1,266 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #e6ecf0;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  width: 90%;
+  height: calc(100vh - 60px);
+  max-width: 800px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px;
+}
+
+.chat_history {
+  width: 100%;
+  max-width: 800px;
+  height: calc(100vh - 100px);
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header {
+  background: #1da1f2;
+  color: white;
+  font-size: 20px;
+  text-align: center;
+  padding: 15px;
+  font-weight: bold;
+  width: 100%;
+}
+
+.chat-box {
+  padding: 15px;
+  max-height: calc(100vh - 120px);
+  overflow-y: auto;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.message {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  width: 100%;
+  box-sizing: border-box;
+  gap: 10px;
+}
+
+.avatar {
+  width: 50px; /* アイコンの幅 */
+  height: 50px; /* アイコンの高さ */
+  border-radius: 50%; /* 丸くするためにborder-radiusを50%に設定 */
+  background-color: #ccc; /* アイコンの背景色 */
+  display: inline-block; /* 必要に応じてインラインブロック要素に設定 */
+  background-image: url('./assets/147358.jpg'); /* 画像をアイコンとして使用する場合 */
+  background-size: cover; /* 画像をカバーさせる */
+  background-position: center; /* 画像を中央に配置 */
+}
+
+.text {
+  background: #0fca0b;
+  padding: 10px;
+  border-radius: 15px;
+  max-width: calc(100% - 50px);
+  word-wrap: break-word;
+  flex-grow: 1;
+  display: flex; /* 横並びにする */
+  align-items: center; /* 中央揃え */
+  justify-content: space-between; /* テキストとボタンの間にスペース */
+  gap: 10px;
+}
+
+.chat_delete_button {
+  background: #ff4d4d;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  font-size: 14px;
+  border-radius: 5px;
+  cursor: pointer;
+  flex-shrink: 0;
+  margin-left: 5px; /* 左側のマージンを追加 */
+}
+
+.chat_edit_button {
+  background: black;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  font-size: 14px;
+  border-radius: 5px;
+  cursor: pointer;
+  flex-shrink: 0;
+  margin-right: 0; /* 右側のマージンをなしに */
+  margin-left: 0;
+}
+
+.button_container {
+  display: flex; /* フレックスボックスを使用してボタンを横並びに */
+  align-items: center; /* ボタンを中央に揃える */
+}
+
+.chat_delete_button:hover {
+  background: #d93636;
+}
+
+.chatter_form {
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  border-top: 1px solid #ddd;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.chat_text{
+  color: #000000aa;
+  text-align: left;
+  font-weight: bolder;
+}
+
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  resize: none;
+  font-size: 14px;
+  box-sizing: border-box;
+  
+}
+
+input[type="submit"] {
+  background: #1da1f2;
+  color: white;
+  border: none;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+input[type="submit"]:hover {
+  background: #0d8ddf;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  padding: 20px;
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  z-index: 1000;
+}
+
+/* オーバーレイのスタイル */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+
+/* テキストエリアのスタイル */
+.modal textarea {
+  width: 100%;
+  height: 100px;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+/* ボタンのスタイル */
+.modal button {
+  padding: 10px 20px;
+  margin-right: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+/* キャンセルボタンのスタイル */
+.modal button:last-child {
+  background-color: #dc3545;
+}
+
+.modal-header{
+  color: #000000aa;
+  font-weight: bold;
+  margin-bottom: 10px;
+}

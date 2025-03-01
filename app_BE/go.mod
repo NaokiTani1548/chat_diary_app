@@ -1,4 +1,4 @@
-module GoPractice
+module public_chatter/app_BE
 
 go 1.24.0
 
